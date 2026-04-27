@@ -12,7 +12,7 @@ env-down:
 env-cleanup:
 	@read -p "Очистить все файлы окружения valume? Опасность утери данных. [y/N]: " ans;\
 	if [ "$$ans" = "y" ]; then \
-		docker compose down todo-postgres && \
+		docker compose down todo-postgres port-forwarder && \
 		sudo rm -rf out/pgdata && \
 		echo "Файлы окружения очищены"; \
 	else \
@@ -51,3 +51,9 @@ migrate-action:
 		-path /migrations \
 		-database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@todo-postgres:5432/${POSTGRES_DB}?sslmode=disable \
 		"$(action)"
+
+todoapp-run:
+	@export LOGGER_FOLDER=${PROJECT_ROOT}/logs && \
+	export POSTGRES_HOST=localhost && \
+	go mod tidy && \
+	go run cmd/todoapp/main.go
