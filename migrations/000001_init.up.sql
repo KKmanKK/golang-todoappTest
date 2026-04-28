@@ -12,7 +12,7 @@ CREATE TABLE todoapp.users(
 );
 
 
-CREATE TABLE todoapp.task(
+CREATE TABLE todoapp.tasks(
     id              SERIAL PRIMARY KEY,
     version         BIGINT NOT NULL DEFAULT 1,
     title           VARCHAR(100) NOT NULL CHECK(char_length(title) BETWEEN 1 AND 100),
