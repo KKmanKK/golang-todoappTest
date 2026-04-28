@@ -19,7 +19,7 @@ func (r *TaskRepository) PatchTask(
 	defer cancel()
 
 	query := `
-	UPDATE todoapp.task
+	UPDATE todoapp.tasks
 	SET 
 		title=$1, 
 		description=$2,

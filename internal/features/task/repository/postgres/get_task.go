@@ -19,7 +19,7 @@ func (r *TaskRepository) GetTask(
 
 	query := `
 	SELECT id,version,title,description,completed,created_at,completed_at,author_user_id
-	FROM todoapp.task
+	FROM todoapp.tasks
 	WHERE id=$1;
 	`
 	row := r.pool.QueryRow(ctx, query, id)

@@ -15,7 +15,7 @@ func (r *TaskRepository) DeleteTask(
 	defer cancel()
 
 	query := `
-	DELETE FROM todoapp.task
+	DELETE FROM todoapp.tasks
 	WHERE id=$1;
 	`
 	cmdTag, err := r.pool.Exec(ctx, query, id)

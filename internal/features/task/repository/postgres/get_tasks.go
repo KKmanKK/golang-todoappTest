@@ -18,11 +18,11 @@ func (r *TaskRepository) GetTasks(
 
 	query := `
 	SELECT id,version,title,description,completed,created_at,completed_at,author_user_id 
-	FROM todoapp.task
+	FROM todoapp.tasks
 	%s
 	ORDER BY id ASC
 	LIMIT $1
-	OFFSET $2
+	OFFSET $2;
 	`
 	args := []any{limit, offset}
 
