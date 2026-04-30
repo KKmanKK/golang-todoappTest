@@ -1,4 +1,4 @@
-package task_postgres_repository
+package statistics_postgres_repository
 
 import (
 	"time"
@@ -30,7 +30,7 @@ func taskDomainFromModel(taskModel TaskModel) domain.Task {
 	)
 }
 
-func tasksDomainsFromModels(tasksModeles []TaskModel) []domain.Task {
+func tasksDomaInFromModels(tasksModeles []TaskModel) []domain.Task {
 	tasksDomains := make([]domain.Task, len(tasksModeles))
 
 	for i, taskModel := range tasksModeles {
