@@ -61,8 +61,17 @@ logs-cleanup:
 		echo "Очитска логов отменена";\
 	fi
 
-todoapp-run:
+todoapp-run: 
 	@export LOGGER_FOLDER=${PROJECT_ROOT}/logs && \
 	export POSTGRES_HOST=localhost && \
 	go mod tidy && \
 	go run ${PROJECT_ROOT}/cmd/todoapp/main.go
+
+todoapp-deploy:
+	@docker compose up -d --build todoapp
+
+todoapp-undeploy:
+	@docker compose down todoapp
+
+ps:
+	@docker compose ps
